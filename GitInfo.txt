@@ -1,0 +1,241 @@
+
+
+1) config --global command to show who did commit
+
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (main)
+	$ git config --global user.name Abhijit
+
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (main)
+	$ git config --global user.email abhijitmahajan772@gmail.com
+
+
+2) untrack       => git dont have any concern with your file 
+     staged        => add the file and git recognize your file
+     unmodified => staged + commit
+     modified     => do staged again and then commit
+
+
+     stagin area => photo khichane ke liye ready hai(pose de rahe hai)
+     commit       =>photo khichva liya
+    
+
+3) add file to staging area
+   
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+	$ git add index.html
+
+4) we need to do initial commit once you start the project
+     the condition may be critical that time
+    
+      i) write Initial commit on the window (Initial commit : shows what changes you commit)
+     ii) ESC + : + w + q and press ennter to live that window
+
+
+5)  To add all files to staging areas.
+                 $ git add -A
+
+6) modify any file and then check git status it will show which file is in  modified area.
+     and then again you need to add it in staged area.
+
+7) after modifying files
+
+
+                Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+                $ git add -A
+
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+	$ git commit -m "added more htmls"
+	[master 6b2c15f] added more htmls
+	 1 file changed, 2 insertions(+)
+
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+	$ git status
+	On branch master
+	nothing to commit, working tree clean
+
+
+8) bring last version of file
+     suppose someone edit your file and save tthen to bring back your file 
+
+     	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+    	$ git checkout contact.html
+    	Updated 1 path from the index
+
+      =>
+           lets say you have 1000 file wrongly modified  then what to do
+          	 $ git checkout -f
+  
+
+9) To show all commit history
+
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+	$ git log
+
+	commit 6b2c15f34cac3c1da9cb270edbc1875b48a0a62f (HEAD -> master)
+	Author: Abhijit <abhijitmahajan772@gmail.com>
+	Date:   Wed Dec 29 15:49:11 2021 +0530
+
+	    added more htmls
+
+	commit 11a8dc32f6d8a86bd92329a1e4dff05150be07c6
+	Author: Abhijit <abhijitmahajan772@gmail.com>
+	Date:   Wed Dec 29 15:48:12 2021 +0530
+
+	    added more htmls
+
+	commit 22b5311731be530fa86ff5beef3e882450534b2b
+	Author: Abhijit <abhijitmahajan772@gmail.com>
+	Date:   Sun Dec 26 21:00:52 2021 +0530
+
+	    Initial commit
+
+
+
+10)
+      Let say you did 1000 commit and you want to show only last 5 or last 1
+      
+
+
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+	$ git log -p -1
+	commit 6b2c15f34cac3c1da9cb270edbc1875b48a0a62f (HEAD -> master)
+	Author: Abhijit <abhijitmahajan772@gmail.com>
+	Date:   Wed Dec 29 15:49:11 2021 +0530
+
+	    added more htmls
+
+	diff --git a/contact.html b/contact.html
+	index e69de29..5b1b16d 100644
+	--- a/contact.html
+	+++ b/contact.html
+	@@ -0,0 +1,2 @@
+	+<html>^M
+	+</html>
+	\ No newline at end of file
+
+11) diff command => it comapre working tree with
+        
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+	$ git diff
+	diff --git a/contact.html b/contact.html
+	index 5b1b16d..70019ce 100644
+	--- a/contact.html
+	+++ b/contact.html
+	@@ -1,2 +1,5 @@
+	 <html>
+	+<body>^M
+	+<h1>hey git</h1>^M
+	+</body>^M
+	 </html>
+	\ No newline at end of file
+
+12) direct commit with skipping staging
+
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+	$ git commit -a -m"direct commit with skipping staging"
+	[master ca33a56] direct commit with skipping staging
+	 1 file changed, 3 insertions(+)
+
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+	$ git log
+	commit ca33a56a7ff1fbfb99b89785e3f94268848dcecf (HEAD -> master)
+	Author: Abhijit <abhijitmahajan772@gmail.com>
+	Date:   Wed Dec 29 17:40:13 2021 +0530
+
+                direct commit with skipping staging
+
+13) --cached command move file from staged area to untracked area
+
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+	$ git rm --cached waste.html
+	rm 'waste.html'
+
+
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+	$ ls
+	1567666.png  about.html  contact.html  index.css  index.html  waste.html
+
+
+14) git rm completly delete the file
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+	$ git rm waste.html
+	rm 'waste.html'
+
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+	$ ls
+	1567666.png  about.html  contact.html  index.css  index.html
+
+15) short status 
+
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+	$ git status -s
+	MM contact.html
+	D  waste.html
+
+16) When you are working on project it maight be possible that their will generate lots of unwanted files
+     like unwanted imges, unwanted log file and their is not meaning of sending that file on github server.
+     we need to ignore that files.
+	
+	=>create .ignore file
+	     $ touch .gitignore
+
+	=>add all file name that you want to ignore from adding into staging area
+
+17) Branches 
+       We use Branch to avoid looseing the project. Branch means you csn create copy of that projet and work on 
+       copy of that project without harming the master branch.
+      
+
+	=>you project is main branch (master )
+ 
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+	$ git branch feature1
+
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+	$ git branch
+	  feature1
+	* master
+
+18) Working on branch (go to main branch master to features1 )
+
+	Asus@LAPTOP-DH5OUHGT MINGW64 ~/Desktop/Git in One VDO (master)
+	$ git checkout feature1
+	Switched to branch 'feature1'
+	A       .gitignore
+	M       contact.html
+	D       waste.html
+
+19) merge branch to master
+	
+	$ git merge feature1
+
+
+
+20) github push your repo at remote place
+
+
+	$ git remote set-url origin git@github.com:AbhijitMahajan14/Git-in-One-VDO.git
+                 // git@github.com:AbhijitMahajan14/Git-in-One-VDO.git 
+                 this is the repository url on github
+
+
+	$ git push -u origin master
+
+                //this pushes your repo on github
+
+
+                $  git push -u origin feature1
+	//this pushes your branch on github
+
+
+21) git pull request
+       we request an pull to owner of repo and ask for changing or modifying his code
+
+22) git clone url 
+       git clone url folder
+
+
+
+
+ 
+
