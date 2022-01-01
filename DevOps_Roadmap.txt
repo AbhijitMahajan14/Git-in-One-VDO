@@ -1,0 +1,21 @@
+1) python or golang
+2) server administration - Linux ,Unix, 
+3) Networking and Sec
+4) Servers - Websers (apache,nginx,tomcat)
+	  - Caching (Redis, Memcache)
+	  - DBs (NoSQL(mongo,awsdb,gcp), SQL)
+
+5)Infrastructure as Code- Cofiguration Management (ansible, puppet)
+		        - Conteners (dockers)
+		        - kubernates,k8s
+		        - Teraform
+		        -cloud providers (gcp, google deployment provider)
+
+6) ci/cd - Jenkins
+              - Circle CI
+              - Travis CI
+              -Github CI
+
+7)Monitoring and Logging - Promitius ,Graphana, Thanos
+
+8) Cloud - GCP, AWS, Azure
