@@ -234,8 +234,18 @@
 22) git clone url 
        git clone url folder
 
+23)when you want to add new file or update older file in already existed repos:
+
+	1)modfy that file
+	2)connect with that repo using set-url command 
+	    => ex.
+	    $ git remote set-url origin git@github.com:AbhijitMahajan14/OTT-Website-Dispney-.git
+
+	3)git add -A or add that file only
+	4)git commit
+	5) push that folder $ git push -u origin main
 
 
 
- 
+  
 
